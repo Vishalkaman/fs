@@ -1,0 +1,31 @@
+{% extends 'base.html' %} {% block content %}
+<form action="" method="POST">
+    {% csrf_token %}
+    <label for="enrolled">Select course:</label>
+    <select name="enrolled" id="enrolled">
+        {% for c in courses %}
+        <option value="{{ c.id }}">{{ c.courseCode }}</option>
+        {% endfor %}
+    </select>
+
+    <input type="submit" value="Search" />
+</form>
+
+{% if students %}
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>USN</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for s in students %}
+        <tr>
+            <td>{{ s.name }}</td>
+            <td>{{ s.usn }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %} {% endblock %}

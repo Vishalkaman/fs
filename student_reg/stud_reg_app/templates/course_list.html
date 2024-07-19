@@ -1,0 +1,19 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Courses</h1>
+
+<table>
+    <tr>
+        <th>Code</th>
+        <th>Name</th>
+        <th>Credits</th>
+    </tr>
+
+    {% for c in courses %}
+    <tr>
+        <td>{{c.courseCode}}</td>
+        <td>{{c.courseName}}</td>
+        <td>{{c.courseCredits}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
